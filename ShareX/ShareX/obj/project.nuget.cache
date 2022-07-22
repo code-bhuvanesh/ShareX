@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "/LDzUI7HT33dmPGRJwJvmDpPJz1/CU3RoWoTm57f9slNj6WvOpS7PKLARxlK/qV1S36OtdO9Le5LPFm2rMx1Wg==",
+  "success": true,
+  "projectFilePath": "E:\\Projects\\my_projects\\ShareX\\ShareX\\ShareX\\ShareX.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bhuvanesh\\.nuget\\packages\\mahapps.metro.iconpacks\\4.11.0\\mahapps.metro.iconpacks.4.11.0.nupkg.sha512",
+    "C:\\Users\\bhuvanesh\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.26\\microsoft.windows.sdk.net.ref.10.0.19041.26.nupkg.sha512"
+  ],
+  "logs": []
+}

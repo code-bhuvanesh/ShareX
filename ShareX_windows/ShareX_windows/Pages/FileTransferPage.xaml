@@ -1,0 +1,89 @@
+﻿<Page x:Class="ShareX_windows.Pages.FileTransferPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:local="clr-namespace:ShareX_windows"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FileTransferPage">
+        
+    <Grid Background="Aqua">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+            <Border 
+                Grid.Column="0"
+                VerticalAlignment="Stretch" 
+                HorizontalAlignment="Stretch"
+                Margin="40"
+                Background="#FFEC2828"
+                CornerRadius="30">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" VerticalAlignment="Stretch">
+                        <TextBlock Text="SEND FILES" HorizontalAlignment="Center" Margin="10" FontSize="20" FontWeight="Bold" Foreground="#FFF1E9E9"/>
+                        <Separator Height="40" Background="Transparent"/>
+                    </StackPanel>
+
+                <ListBox Grid.Row="1" VerticalAlignment="Stretch" x:Name="sendFilesList" Background="{x:Null}" BorderThickness="0" >
+                    
+                </ListBox>
+
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <local:TranslucentButton ButtonText="SelectFiles" ButtonIcon="FileDocumentMultiple" Click="selectFiles"/>
+                    <local:TranslucentButton x:Name="SendFilesBtn" ButtonText="Send" ButtonIcon="Send" Click="SendFiles"/>
+                </StackPanel>
+                   
+                    
+                </Grid>
+                
+    
+            </Border>
+
+        <Border 
+                Grid.Column="1"
+                VerticalAlignment="Stretch" 
+                HorizontalAlignment="Stretch"
+                Margin="40"
+                Background="#FFEC2828"
+                CornerRadius="30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" VerticalAlignment="Stretch">
+                    <TextBlock Text="RECEIVED FILES" HorizontalAlignment="Center" Margin="10" FontSize="20" FontWeight="Bold" Foreground="#FFF1E9E9"/>
+                    <Separator Height="40" Background="Transparent"/>
+                </StackPanel>
+
+                <ListBox Grid.Row="1" VerticalAlignment="Stretch" x:Name="receivedFilesList" Background="{x:Null}" BorderThickness="0" >
+
+                </ListBox>
+
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <local:TranslucentButton x:Name="receiveFilesBtn" ButtonText="Receive" ButtonIcon="DownloadBox" Click="ReceiveFiles"/>
+                </StackPanel>
+
+
+            </Grid>
+
+
+        </Border>
+
+
+
+
+    </Grid>
+</Page>

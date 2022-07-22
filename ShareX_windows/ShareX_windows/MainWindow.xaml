@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShareX_windows"
         mc:Ignorable="d"
+        WindowStyle="SingleBorderWindow"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <StackPanel 
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
 
-    </Grid>
+        <TextBox x:Name="input_text" 
+                 Width="100" 
+                 Height="30" 
+                 Margin="5"/>
+        <Button x:Name="send_btn"
+                Content="Send"
+                Click="Send_btn"/>
+        <Label
+            x:Name="received_label"
+            Content="recived msg"/>
+
+        <Button
+            x:Name="select_btn"
+            Content="open file"
+            Margin="10"
+            Click="select_btn_Click"/>
+
+    </StackPanel>
 </Window>

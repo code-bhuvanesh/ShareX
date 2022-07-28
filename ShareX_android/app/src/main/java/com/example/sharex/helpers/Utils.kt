@@ -8,8 +8,6 @@ import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.util.Log
-import android.widget.TextView
-import com.example.sharex.model.FileData
 import kotlinx.coroutines.*
 import java.io.*
 import java.net.ServerSocket
@@ -19,6 +17,7 @@ import java.nio.ByteBuffer
 
 object Utils {
     lateinit var socket: Socket
+    lateinit var server: Socket
     lateinit var serverSocket : ServerSocket
     lateinit var inputStream: InputStream
     lateinit var outputStream: OutputStream
@@ -41,9 +40,11 @@ object Utils {
     {
         try {
 //            val client = Socket("192.168.29.180", 6578);
-            val client = Socket(ip, 6578);
-            inputStream = client.getInputStream()
-            outputStream = client.getOutputStream()
+            server = Socket(ip, 6578);
+            server.tcpNoDelay = true
+            inputStream = server.getInputStream()
+            outputStream = server.getOutputStream()
+
             return true
         }
         catch(e: Exception)
@@ -54,6 +55,19 @@ object Utils {
 
     }
 
+    suspend fun onDisconnected(callback:()-> Unit)
+    {
+        while (true)
+        {
+            val isReachable = server.inetAddress.isReachable(10)
+            Log.d("TAG", "isReachable = $isReachable")
+            if(!isReachable)
+                break
+            continue
+        }
+        callback()
+
+    }
     suspend fun sendMsg(msg:String)
     {
         val toSend = msg
@@ -203,6 +217,16 @@ object Utils {
 
     }
 
+    suspend fun stopReceiving()
+    {
+        inputStream.close()
+    }
+    suspend fun stopSending()
+    {
+        outputStream.close()
+
+
+    }
 
     suspend fun disconnet()
     {

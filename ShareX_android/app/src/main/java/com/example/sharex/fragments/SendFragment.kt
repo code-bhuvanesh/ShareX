@@ -1,7 +1,8 @@
 package com.example.sharex
 
+import android.content.Context
 import android.content.Intent
-import android.opengl.Visibility
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -20,6 +21,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.net.SocketException
 
 class SendFragment : Fragment() {
 
@@ -28,6 +30,12 @@ class SendFragment : Fragment() {
     private lateinit var selectFilesBtn:Button
     private lateinit var sendFilesBtn:Button
 
+    val MyPREFERENCES = "dataTransfer"
+    val TagName = "transferring"
+
+    var transferring = false
+
+    var sending = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,23 +115,59 @@ class SendFragment : Fragment() {
             resultLauncher.launch(intent)
         }
 
+        val sharedPreferences: SharedPreferences =
+            requireContext().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE)
+        val prefs: SharedPreferences = requireContext().getSharedPreferences(MyPREFERENCES,
+            Context.MODE_PRIVATE
+        )
+        transferring = prefs.getBoolean(TagName, false)
         sendFilesBtn.setOnClickListener {
             GlobalScope.launch(Dispatchers.IO){
-                Utils.sendMsg(filesToSend.size.toString())
+                sendFiles(sharedPreferences,filesToSend,fileList,filesAdapter)
+            }
+        }
+    }
+
+    private suspend fun sendFiles(sharedPreferences:SharedPreferences, filesToSend:ArrayList<File>, fileList:ArrayList<FileData>, filesAdapter:FilesListAdapter)
+    {
+        if(!sending && !transferring)
+        {
+            val editor = sharedPreferences.edit()
+            editor.putBoolean(TagName, true)
+            editor.apply()
+            sending = true
+            Utils.sendMsg(filesToSend.size.toString())
+            val countError = Utils.receiveMsg()
+            if(countError == "success")
+            {
                 for (i in 0 until filesToSend.size) {
-                    Utils.sendFile(filesToSend[0])
-                    Thread.sleep(100)
-                    filesToSend.removeFirst()
-                    fileList.removeFirst()
-                    withContext(Dispatchers.Main)
-                    {
-                        filesAdapter.notifyDataSetChanged()
+                    try {
+                        Utils.sendFile(filesToSend[0])
+                        Thread.sleep(100)
+                        filesToSend.removeFirst()
+                        fileList.removeFirst()
+                        withContext(Dispatchers.Main)
+                        {
+                            filesAdapter.notifyDataSetChanged()
+                        }
                     }
+                    catch (e:SocketException)
+                    {
+                        e.printStackTrace()
+                    }
+
                 }
+                editor.putBoolean(TagName, false)
+                editor.apply()
+                sending = false
+            }
+            else{
+                sendFiles(sharedPreferences,filesToSend,fileList,filesAdapter)
+                return
             }
 
-        }
 
+        }
     }
 
 

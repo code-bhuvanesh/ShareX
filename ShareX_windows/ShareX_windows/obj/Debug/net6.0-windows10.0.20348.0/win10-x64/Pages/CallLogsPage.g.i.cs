@@ -69,7 +69,7 @@ namespace ShareX_windows.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ShareX_windows;component/pages/calllogspage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ShareX_windows;V1.0.0.0;component/pages/calllogspage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Pages\CallLogsPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

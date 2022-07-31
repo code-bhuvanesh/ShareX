@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FileTransferPage">
         
-    <Grid Background="Aqua">
+    <Grid Background="{StaticResource LightBackground}">
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -20,7 +20,7 @@
                 VerticalAlignment="Stretch" 
                 HorizontalAlignment="Stretch"
                 Margin="40"
-                Background="#FFEC2828"
+                Background="{StaticResource darkBackground}"
                 CornerRadius="30">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -29,7 +29,13 @@
                         <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0" VerticalAlignment="Stretch">
-                        <TextBlock Text="SEND FILES" HorizontalAlignment="Center" Margin="10" FontSize="20" FontWeight="Bold" Foreground="#FFF1E9E9"/>
+                        <TextBlock 
+                            Text="SEND FILES" 
+                            HorizontalAlignment="Center" 
+                            Margin="10" 
+                            FontSize="20" 
+                            FontWeight="Bold" 
+                            Foreground="{StaticResource defaultForegroundColor}"/>
                         <Separator Height="40" Background="Transparent"/>
                     </StackPanel>
 
@@ -54,7 +60,7 @@
                 VerticalAlignment="Stretch" 
                 HorizontalAlignment="Stretch"
                 Margin="40"
-                Background="#FFEC2828"
+                Background="{StaticResource darkBackground}"
                 CornerRadius="30">
             <Grid>
                 <Grid.RowDefinitions>
@@ -63,7 +69,13 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" VerticalAlignment="Stretch">
-                    <TextBlock Text="RECEIVED FILES" HorizontalAlignment="Center" Margin="10" FontSize="20" FontWeight="Bold" Foreground="#FFF1E9E9"/>
+                    <TextBlock 
+                        Text="RECEIVED FILES" 
+                        HorizontalAlignment="Center" 
+                        Margin="10" 
+                        FontSize="20" 
+                        FontWeight="Bold" 
+                        Foreground="{StaticResource defaultForegroundColor}"/>
                     <Separator Height="40" Background="Transparent"/>
                 </StackPanel>
 

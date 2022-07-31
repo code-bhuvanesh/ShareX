@@ -13,4 +13,7 @@
     <SourceRoot Include="C:\Users\bhuvanesh\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgWPF-UI Condition=" '$(PkgWPF-UI)' == '' ">C:\Users\bhuvanesh\.nuget\packages\wpf-ui\2.0.2</PkgWPF-UI>
+  </PropertyGroup>
 </Project>

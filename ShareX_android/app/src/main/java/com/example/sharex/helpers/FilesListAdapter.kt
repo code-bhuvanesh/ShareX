@@ -1,4 +1,4 @@
-package com.example.sharex
+package com.example.sharex.helpers
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import com.example.sharex.R
 import com.example.sharex.model.FileData
 
 class FilesListAdapter(private val context: Context, private  val filesList: ArrayList<FileData>) : BaseAdapter() {

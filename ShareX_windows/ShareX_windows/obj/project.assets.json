@@ -70,6 +70,21 @@
             "rid": "win"
           }
         }
+      },
+      "WPF-UI/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/Wpf.Ui.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Wpf.Ui.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     },
     "net6.0-windows10.0.20348/win-arm64": {
@@ -125,6 +140,21 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "WPF-UI/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/Wpf.Ui.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Wpf.Ui.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     },
     "net6.0-windows10.0.20348/win-x64": {
@@ -180,6 +210,21 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "WPF-UI/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/Wpf.Ui.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Wpf.Ui.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     },
     "net6.0-windows10.0.20348/win-x86": {
@@ -235,6 +280,21 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "WPF-UI/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/Wpf.Ui.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Wpf.Ui.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     },
     "net6.0-windows10.0.20348/win10-x64": {
@@ -290,6 +350,21 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "WPF-UI/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/Wpf.Ui.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Wpf.Ui.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     }
   },
@@ -439,12 +514,40 @@
         "system.drawing.common.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "WPF-UI/2.0.2": {
+      "sha512": "Nj2Viy7dbqin4L//9c99wo2cYOT90uG2k1JAGnXbnbvKAOAbERwGxIm3sAKziB21RP9hKW/Z2jurAsZ4Xu0Tkg==",
+      "type": "package",
+      "path": "wpf-ui/2.0.2",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net461/Wpf.Ui.dll",
+        "lib/net461/Wpf.Ui.xml",
+        "lib/net47/Wpf.Ui.dll",
+        "lib/net47/Wpf.Ui.xml",
+        "lib/net48/Wpf.Ui.dll",
+        "lib/net48/Wpf.Ui.xml",
+        "lib/net5.0-windows7.0/Wpf.Ui.dll",
+        "lib/net5.0-windows7.0/Wpf.Ui.xml",
+        "lib/net6.0-windows7.0/Wpf.Ui.dll",
+        "lib/net6.0-windows7.0/Wpf.Ui.xml",
+        "lib/netcoreapp3.1/Wpf.Ui.dll",
+        "lib/netcoreapp3.1/Wpf.Ui.xml",
+        "tools/VisualStudioToolsManifest.xml",
+        "wpf-ui.2.0.2.nupkg.sha512",
+        "wpf-ui.nuspec",
+        "wpfui.png"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows10.0.20348": [
       "MahApps.Metro.IconPacks.Material >= 4.11.0",
-      "QRCoder >= 1.4.3"
+      "QRCoder >= 1.4.3",
+      "WPF-UI >= 2.0.2"
     ]
   },
   "packageFolders": {
@@ -498,6 +601,10 @@
           "QRCoder": {
             "target": "Package",
             "version": "[1.4.3, )"
+          },
+          "WPF-UI": {
+            "target": "Package",
+            "version": "[2.0.2, )"
           }
         },
         "imports": [

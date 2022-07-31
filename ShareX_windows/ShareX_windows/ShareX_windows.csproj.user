@@ -15,6 +15,9 @@
     <Compile Update="Pages\FileTransferPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\ImageFullScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\MessagesPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -32,13 +35,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Pages\CallLogsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\FileTransferPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ImageFullScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\MessagesPage.xaml">

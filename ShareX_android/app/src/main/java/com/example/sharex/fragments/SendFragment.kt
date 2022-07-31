@@ -1,4 +1,4 @@
-package com.example.sharex
+package com.example.sharex.fragments
 
 import android.content.Context
 import android.content.Intent
@@ -15,6 +15,9 @@ import android.widget.TextView
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.sharex.helpers.FilesListAdapter
+import com.example.sharex.R
+import com.example.sharex.helpers.Utils
 import com.example.sharex.model.FileData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -23,7 +26,9 @@ import kotlinx.coroutines.withContext
 import java.io.File
 import java.net.SocketException
 
-class SendFragment : Fragment() {
+class SendFragment(u: Utils) : Fragment() {
+
+    val utils = u
 
     private lateinit var filesStatus: TextView
     private lateinit var filesListView:ListView
@@ -74,13 +79,13 @@ class SendFragment : Fragment() {
                 if (null != data.clipData) {
                     for (i in 0 until data.clipData!!.itemCount) {
                         val uri = data.clipData!!.getItemAt(i).uri
-                        val filePath = Utils.getPath(requireContext(), uri);
+                        val filePath = utils.getPath(requireContext(), uri);
                         val file = File(filePath!!)
                         if(!filesToSend.contains(file))
                         {
                             filesToSend.add(file)
                             val fileName = file.name
-                            val fileSize = Utils.getFileSize((file.length()))
+                            val fileSize = utils.getFileSize((file.length()))
                             fileList.add(FileData(fileName, fileSize))
                             filesAdapter.notifyDataSetChanged()
                             Log.d("TAG", "onCreate: file path is............. : $filePath")
@@ -89,13 +94,13 @@ class SendFragment : Fragment() {
 
                     }
                 } else {
-                    val filePath = Utils.getPath(requireContext(), data.data!!);
+                    val filePath = utils.getPath(requireContext(), data.data!!);
                     val file = File(filePath!!)
                     if(!filesToSend.contains(file))
                     {
                         filesToSend.add(file)
                         val fileName = file.name
-                        val fileSize = Utils.getFileSize((file.length()))
+                        val fileSize = utils.getFileSize((file.length()))
                         fileList.add(FileData(fileName, fileSize))
                         filesAdapter.notifyDataSetChanged()
                         Log.d("TAG", "onCreate: file path is : $filePath")
@@ -128,7 +133,7 @@ class SendFragment : Fragment() {
         }
     }
 
-    private suspend fun sendFiles(sharedPreferences:SharedPreferences, filesToSend:ArrayList<File>, fileList:ArrayList<FileData>, filesAdapter:FilesListAdapter)
+    private suspend fun sendFiles(sharedPreferences:SharedPreferences, filesToSend:ArrayList<File>, fileList:ArrayList<FileData>, filesAdapter: FilesListAdapter)
     {
         if(!sending && !transferring)
         {
@@ -136,13 +141,13 @@ class SendFragment : Fragment() {
             editor.putBoolean(TagName, true)
             editor.apply()
             sending = true
-            Utils.sendMsg(filesToSend.size.toString())
-            val countError = Utils.receiveMsg()
+            utils.sendMsg(filesToSend.size.toString())
+            val countError = utils.receiveMsg()
             if(countError == "success")
             {
                 for (i in 0 until filesToSend.size) {
                     try {
-                        Utils.sendFile(filesToSend[0])
+                        utils.sendFile(filesToSend[0])
                         Thread.sleep(100)
                         filesToSend.removeFirst()
                         fileList.removeFirst()

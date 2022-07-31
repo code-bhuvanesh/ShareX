@@ -9,36 +9,42 @@
         Loaded="Window_Loaded"
         Title="Window1" Height="720" Width="1080">
 
-
+    
     <Grid Background="Aqua">
+        
+        
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="230"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="302*"/>
+            <ColumnDefinition Width="431*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Border Height="100"/>
-            
+
+
         <Border
-            Grid.Row="1"
-            CornerRadius="0 30 0 0"
-            Background="#623ed0">
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Background="{StaticResource darkBackground}">
 
             <DockPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                    <Border Margin="0 -80 0 0 " Height="180" Width="100">
+                    <Border Margin="0 10 0 0 " Height="180" Width="100">
                         <Rectangle >
                             <Rectangle.Fill>
                                 <ImageBrush Stretch="Uniform"  ImageSource="/mobile.png"/>
                             </Rectangle.Fill>
                         </Rectangle>
                     </Border>
-                    
-                    <StackPanel  Height="auto" Margin="0 10 0 0">
+
+                    <StackPanel  Height="auto" Margin="0 20 0 0">
                         <TextBlock x:Name="DeviceName" Text="Realme 3 pro" Style="{StaticResource phoneDetails}"/>
                         <TextBlock x:Name="connectionStatus" Text="Not connected" Style="{StaticResource phoneDetails}"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  Margin="10 5">
@@ -59,32 +65,32 @@
                         SelectionChanged="navBar_SelectionChanged" 
                         Background="Transparent">
 
-                        <local:NavButton Navlink="/Pages/PhotosPage.xaml" Text="Photos" Icon="Image"/>
+                        <local:NavButton Navlink="0" Text="Photos" Icon="Image"/>
 
-                        <local:NavButton Navlink="/Pages/FileTransferPage.xaml" Text="File Transfer" Icon="File"/>
+                        <local:NavButton Navlink="1" Text="File Transfer" Icon="File"/>
 
-                        <local:NavButton Navlink="/Pages/MessagesPage.xaml" Text="Message" Icon="Message"/>
+                        <local:NavButton Navlink="2" Text="Message" Icon="Message"/>
 
-                        <local:NavButton Navlink="/Pages/NotificationPage.xaml" Text="Notifications" Icon="Bell"/>
+                        <local:NavButton Navlink="3" Text="Notifications" Icon="Bell"/>
 
-                        <local:NavButton Navlink="/Pages/CallLogsPage.xaml" Text="Call Logs" Icon="PhoneLog"/>
-
+                        <local:NavButton Navlink="4" Text="Call Logs" Icon="PhoneLog"/>
 
                     </ListBox>
                 </StackPanel>
-                
+
 
             </DockPanel>
 
         </Border>
-        
-        
+
+
         <Frame 
             Grid.Column="1" 
-            Grid.Row="1" 
+            Grid.Row="0"
+            Grid.RowSpan="2"
             x:Name="navFrame" 
-            Background="Aqua"
-            NavigationUIVisibility="Hidden"/>
+            Background="{StaticResource LightBackground}"
+            NavigationUIVisibility="Hidden" Grid.ColumnSpan="3"/>
 
 
     </Grid>

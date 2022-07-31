@@ -1,4 +1,4 @@
-package com.example.sharex
+package com.example.sharex.helpers
 
 import android.content.ContentUris
 import android.content.Context
@@ -15,32 +15,31 @@ import java.net.Socket
 import java.nio.ByteBuffer
 
 
-object Utils {
+class Utils(private val port: Int = 6578) {
     lateinit var socket: Socket
     lateinit var server: Socket
     lateinit var serverSocket : ServerSocket
     lateinit var inputStream: InputStream
     lateinit var outputStream: OutputStream
 
-    private const val buffer = 1024 * 10000
+    private val buffer = 1024 * 10000
 
-
-    suspend fun connectToPC(port:Int = 11000)
+    suspend fun connectToPC()
     {
-        Log.d("TAG", "connectToPC: waiting for pc")
+        Log.d("server", "connectToPC: waiting for pc")
         serverSocket = ServerSocket(port)
         socket = serverSocket.accept()
         inputStream = socket.getInputStream()
         outputStream = socket.getOutputStream()
 
-        Log.d("TAG", "connectToPC: Connected to Pc")
+        Log.d("server", "connectToPC: Connected to Pc")
     }
 
     suspend fun connectToServer(ip:String): Boolean
     {
         try {
 //            val client = Socket("192.168.29.180", 6578);
-            server = Socket(ip, 6578);
+            server = Socket(ip, port);
             server.tcpNoDelay = true
             inputStream = server.getInputStream()
             outputStream = server.getOutputStream()
@@ -49,7 +48,7 @@ object Utils {
         }
         catch(e: Exception)
         {
-            Log.d("TAG", "connectToServer: error connecting : ${e.message}")
+            Log.d("server", "connectToServer: error connecting : ${e.message}")
             return false
         }
 
@@ -60,7 +59,7 @@ object Utils {
         while (true)
         {
             val isReachable = server.inetAddress.isReachable(10)
-            Log.d("TAG", "isReachable = $isReachable")
+            Log.d("server", "isReachable = $isReachable")
             if(!isReachable)
                 break
             continue
@@ -106,10 +105,10 @@ object Utils {
         }
         val file = File(dir, fileName)
 
-//        Log.d("TAG", "receiveFile: file path is ${file.absolutePath}")
+//        Log.d("server", "receiveFile: file path is ${file.absolutePath}")
 
         val fileSize = (receiveMsg()).toLong()
-        Log.d("TAG", "receiveFile: file size $fileSize")
+        Log.d("server", "receiveFile: file size $fileSize")
 
         val bytes = ByteArray(buffer)
 
@@ -124,7 +123,7 @@ object Utils {
             fileRead += bytesRead
             var completed = String.format("%.2f", (((fileRead*1.0)/fileSize)*100) ).toDouble()
             completed = if(completed < 100.0) completed else 100.00
-//            Log.d("TAG", "receiveFile: completed $completed" )
+//            Log.d("server", "receiveFile: completed $completed" )
         }
 
         sendMsg("completed")
@@ -146,10 +145,10 @@ object Utils {
         }
         val file = File(dir, fileName)
 
-//        Log.d("TAG", "receiveFile: file path is ${file.absolutePath}")
+//        Log.d("server", "receiveFile: file path is ${file.absolutePath}")
 
         val fileSize = (receiveMsg()).toLong()
-        Log.d("TAG", "receiveFile: file size $fileSize")
+        Log.d("server", "receiveFile: file size $fileSize")
         val bytes = ByteArray(buffer)
 
         GlobalScope.launch(Dispatchers.Main)
@@ -163,9 +162,9 @@ object Utils {
         var fileRead = 0
 
         while (fileRead < fileSize) {
-            Log.d("TAG", "receiveFileashdfsahfklsajklfdsjkfhjksdhfjkdshfkldsfklhdklfjdklfkldjf" )
+            Log.d("server", "receiveFileashdfsahfklsajklfdsjkfhjksdhfjkdshfkldsfklhdklfjdklfkldjf" )
             val bytesRead = inputStream.read(bytes)
-            Log.d("TAG", "receiveFileashdfsahfklsajklfdsjkfhjksdhfjkdshfkldsfklhdklfjdklfkldjf" )
+            Log.d("server", "receiveFileashdfsahfklsajklfdsjkfhjksdhfjkdshfkldsfklhdklfjdklfkldjf" )
             bos.write(bytes,0, bytesRead)
             fileRead += bytesRead
             var completed = String.format("%.2f", (((fileRead*1.0)/fileSize)*100) ).toDouble()
@@ -174,7 +173,7 @@ object Utils {
             {
                 filesListAdapter.updateStatus(pos,completed)
             }
-//            Log.d("TAG", "receiveFile: completed $completed" )
+//            Log.d("server", "receiveFile: completed $completed" )
         }
 
         sendMsg("completed")
@@ -195,23 +194,23 @@ object Utils {
 
         var bytes = ByteArray(buffer)
 
-        Log.d("TAG", "sendFile: starting file transfer fileName : $fileName, filesize : $fileSize");
+        Log.d("server", "sendFile: starting file transfer fileName : $fileName, filesize : $fileSize");
         var fileRead = 0
         while(fileRead < fileSize)
         {
             val bytesRead = fis.read(bytes)
             outputStream.write(bytes, 0, bytesRead)
-            Log.d("TAG", "sendFile: .........................................")
+            Log.d("server", "sendFile: .........................................")
             fileRead += bytesRead
 
             var completed = String.format("%.2f", (((fileRead*1.0)/fileSize)*100) ).toDouble()
             completed = if(completed < 100.0) completed else 100.00
 
-            Log.d("TAG", "sendFile: completed $completed %")
+            Log.d("server", "sendFile: completed $completed %")
 
         }
         receiveMsg()
-        Log.d("TAG", "sendFile: file Sent")
+        Log.d("server", "sendFile: file Sent")
 
 
 

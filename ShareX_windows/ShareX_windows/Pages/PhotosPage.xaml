@@ -4,11 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ShareX_windows.Pages"
+      xmlns:local1="clr-namespace:ShareX_windows.custom_controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PhotosPage">
-
-    <Grid>
-        <Label Content="Photos Page"/>
+    
+    <Grid x:Name="grid1">
+        <ScrollViewer>
+            <WrapPanel x:Name="photosPannel" HorizontalAlignment="Center" VerticalAlignment="Center">
+            </WrapPanel>
+        </ScrollViewer>
+       
     </Grid>
+
 </Page>

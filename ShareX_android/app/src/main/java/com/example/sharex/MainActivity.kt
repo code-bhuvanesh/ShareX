@@ -1,29 +1,19 @@
 package com.example.sharex
 
 import android.app.Activity
-import android.content.ContentUris
-import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
-import android.database.Cursor
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.provider.DocumentsContract
-import android.provider.MediaStore
 import android.util.Log
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
+import com.example.sharex.helpers.SendImages
+import com.example.sharex.helpers.Utils
+import com.example.sharex.helpers.VPAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.Dispatchers
@@ -31,7 +21,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
-import java.lang.Exception
 
 
 class MainActivity : AppCompatActivity() {
@@ -40,37 +29,46 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
     private lateinit var statusText: TextView
 
-    fun connectToPC(ip: String)
+    fun connectToPC(utils:Utils, ip: String)
     {
         GlobalScope.launch(Dispatchers.IO) {
-//            Utils.connectToPC()
-            val connected = Utils.connectToServer(ip)
+//            utils.connectToPC()
+            val connected = utils.connectToServer(ip)
             Log.d("TAG", "onCreate: connected $connected")
             if (connected) {
+
                 withContext(Dispatchers.Main)
                 {
                     statusText.text = "connected"
+                }
+                utils.onDisconnected {
+                    Log.d("TAG","disconnected from host")
                 }
 
             }
             else{
                 Log.d("TAG","retrying .....")
-                connectToPC(ip)
+                connectToPC(utils,ip)
             }
+            SendImages(ip)
 
         }
     }
+
+    val SP_HOST_DATA_NAMME = "hostInfo"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         tabLayout = findViewById(R.id.tabLayout)
         viewPager = findViewById(R.id.viewPager)
         statusText = findViewById(R.id.statusText)
 
+        val utils = Utils(6578)
 
-        viewPager.adapter = VPAdapter(this)
+        viewPager.adapter = VPAdapter(this,utils)
         TabLayoutMediator(tabLayout, viewPager){tab,index ->
             tab.text = when(index){
                 0->{"send"}
@@ -78,20 +76,28 @@ class MainActivity : AppCompatActivity() {
                 else -> {throw Resources.NotFoundException("page not found")}
             }
         }.attach()
+
+        val sharedPreferences = getSharedPreferences("hostInfo", MODE_PRIVATE)
+
+        var hostIp = sharedPreferences.getString("IP","").toString()
         var PCip = ""
-        var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+
+
+        val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
                 if (data != null) {
                     Log.d("TAG", "onCreate: data  not null")
                     if(data.getStringExtra("IP") != null){
                         PCip = data.getStringExtra("IP")!!
+                        val spEditor =  sharedPreferences.edit()
+                        spEditor.putString("IP",PCip)
+                        spEditor.apply()
                         statusText.setOnClickListener{
-                            connectToPC(PCip)
+                            connectToPC(utils, PCip)
                         }
-
-                        connectToPC(PCip)
-                        Log.d("TAG", "IP is $PCip ...........................................")
+                        connectToPC(utils, PCip)
+                        Log.d("TAG", "IP is $PCip")
                     }else{
                         Log.d("TAG", "onCreate: IP is null")
                     }
@@ -100,8 +106,20 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val intent = Intent(this,QRScannerActivity::class.java)
-        resultLauncher.launch(intent)
+        if(hostIp.isEmpty())
+        {
+            val intent = Intent(this,QRScannerActivity::class.java)
+            resultLauncher.launch(intent)
+        }
+        else
+        {
+            statusText.setOnClickListener{
+                connectToPC(utils, hostIp)
+            }
+
+            connectToPC(utils, hostIp)
+        }
+
 
 
 
@@ -114,7 +132,7 @@ class MainActivity : AppCompatActivity() {
 //
 //        /*sendBtn.setOnClickListener {
 //            GlobalScope.launch(Dispatchers.IO) {
-//                Utils.sendMsg(inputText.text.toString());
+//                utils.sendMsg(inputText.text.toString());
 //                withContext(Dispatchers.Main)
 //                {
 //                    inputText.setText("")
@@ -123,22 +141,22 @@ class MainActivity : AppCompatActivity() {
 //        }*/
 //        connectBtn.setOnClickListener {
 //            GlobalScope.launch(Dispatchers.IO) {
-////            Utils.connectToPC()
-//                val connected = Utils.connectToServer()
+////            utils.connectToPC()
+//                val connected = utils.connectToServer()
 //                Log.d("TAG", "onCreate: connected $connected")
 //                if (connected) {
 //                    withContext(Dispatchers.Main)
 //                    {
 //                        receiveText.text = "connected"
 //                    }
-//                    Utils.sendMsg("hello")
+//                    utils.sendMsg("hello")
 //                    withContext(Dispatchers.Main)
 //                    {
 //                        receiveText.text = "recieving"
 //                    }
-////                    Utils.receiveFile(receiveText)
+////                    utils.receiveFile(receiveText)
 ////                    while (true) {
-////                        val rcv = Utils.receiveMsg()
+////                        val rcv = utils.receiveMsg()
 ////                        withContext(Dispatchers.Main){
 ////                            receiveText.text = rcv
 ////                        }
@@ -163,29 +181,29 @@ class MainActivity : AppCompatActivity() {
 ////                    val file = File(filePath)
 ////                    Log.d("TAG", "onCreate: file path is : $filePath")
 ////                    GlobalScope.launch(Dispatchers.IO) {
-////                        Utils.sendFile(file)
+////                        utils.sendFile(file)
 ////                    }
 ////                }
 //
 //                if (null != data.clipData) {
 //                    GlobalScope.launch(Dispatchers.IO) {
-//                        Utils.sendMsg(data.clipData!!.itemCount.toString())
+//                        utils.sendMsg(data.clipData!!.itemCount.toString())
 //                        for (i in 0 until data.clipData!!.itemCount) {
 //                            val uri = data.clipData!!.getItemAt(i).uri
-//                            val filePath = Utils.getPath(this@MainActivity, uri);
+//                            val filePath = utils.getPath(this@MainActivity, uri);
 //                            val file = File(filePath)
 //                            Log.d("TAG", "onCreate: file path is............. : $filePath")
-//                            Utils.sendFile(file)
+//                            utils.sendFile(file)
 //                            Thread.sleep(500)
 //                        }
 //                    }
 //                } else {
-//                    val filePath = Utils.getPath(this, data.data!!);
+//                    val filePath = utils.getPath(this, data.data!!);
 //                    val file = File(filePath)
 //                    Log.d("TAG", "onCreate: file path is : $filePath")
 //                    GlobalScope.launch(Dispatchers.IO) {
-//                        Utils.sendMsg("1")
-//                        Utils.sendFile(file)
+//                        utils.sendMsg("1")
+//                        utils.sendFile(file)
 //                    }
 //                }
 //            })
@@ -208,13 +226,13 @@ class MainActivity : AppCompatActivity() {
 //                    Log.d("TAG", "onCreate: receiving file...............")
 //                    var filesCount = 0
 //                    try {
-//                        val a = Utils.receiveMsg()
+//                        val a = utils.receiveMsg()
 //                        filesCount = a.toInt()
 //                        Log.d("TAG", "onCreate: files count : $a")
 //                        for(i in 0 until filesCount)
 //                        {
 //                            Log.d("TAG", "onCreate: files $i")
-//                            Utils.receiveFile(receiveText)
+//                            utils.receiveFile(receiveText)
 //                            Thread.sleep(500)
 //                        }
 //                    }

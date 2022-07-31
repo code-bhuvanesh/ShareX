@@ -23,12 +23,12 @@ namespace ShareX_windows
             DefaultStyleKeyProperty.OverrideMetadata(typeof(NavButton), new FrameworkPropertyMetadata(typeof(NavButton)));
         }
 
-        public Uri Navlink
+        public int Navlink
         {
-            get { return (Uri)GetValue(NavlinkProperty); }
+            get { return (int)GetValue(NavlinkProperty); }
             set { SetValue(NavlinkProperty, value); }
         }
-        public static readonly DependencyProperty NavlinkProperty = DependencyProperty.Register("Navlink", typeof(Uri), typeof(NavButton), new PropertyMetadata(null));
+        public static readonly DependencyProperty NavlinkProperty = DependencyProperty.Register("Navlink", typeof(int), typeof(NavButton), new PropertyMetadata(null));
 
         public string Text
         {

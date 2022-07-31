@@ -1,9 +1,8 @@
-package com.example.sharex
+package com.example.sharex.fragments
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import android.icu.number.IntegerWidth
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +12,9 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.sharex.helpers.FilesListAdapter
+import com.example.sharex.R
+import com.example.sharex.helpers.Utils
 import com.example.sharex.model.FileData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -20,7 +22,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class ReceiveFragment : Fragment() {
+class ReceiveFragment(u: Utils) : Fragment() {
+
+    val utils = u
 
     private lateinit var filesStatus: TextView
     private lateinit var filesListView: ListView
@@ -51,7 +55,7 @@ class ReceiveFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         filesStatus = view.findViewById(R.id.filesStatus1)
-        filesListView = view.findViewById(R.id.receiveFilesList )
+        filesListView = view.findViewById(R.id.receiveFilesList)
         receiveFilesBtn = view.findViewById(R.id.receiveFiles)
 
 
@@ -88,7 +92,7 @@ class ReceiveFragment : Fragment() {
                 Log.d("TAG", "onCreate: receiving file...............")
                 var filesCount : Int? = 0
                 try {
-                    val count = Utils.receiveMsg()
+                    val count = utils.receiveMsg()
                     filesCount = count.toIntOrNull()
                     Log.d("TAG", "onCreate: files count : $count")
                     if(filesCount != null)
@@ -96,7 +100,7 @@ class ReceiveFragment : Fragment() {
                         for(i in 0 until filesCount)
                         {
                             Log.d("TAG", "onCreate: files $i")
-                            val file = Utils.receiveFile(filesAdapter, i)
+                            val file = utils.receiveFile(filesAdapter, i)
                             Thread.sleep(2000)
                         }
                         editor.putBoolean(TagName, false)

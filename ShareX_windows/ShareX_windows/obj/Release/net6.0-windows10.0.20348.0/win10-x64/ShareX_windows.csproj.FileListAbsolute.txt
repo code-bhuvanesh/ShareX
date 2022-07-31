@@ -507,7 +507,6 @@ E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\bin\Release\net6.0-
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\bin\Release\net6.0-windows10.0.20348.0\win10-x64\Microsoft.Windows.SDK.NET.dll
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\bin\Release\net6.0-windows10.0.20348.0\win10-x64\WinRT.Runtime.dll
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\ShareX_windows.csproj.AssemblyReference.cache
-E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\MainWindow.g.cs
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\Pages\CallLogsPage.g.cs
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\Pages\FileTransferPage.g.cs
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\Pages\MessagesPage.g.cs
@@ -520,7 +519,6 @@ E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\ShareX_windows_MarkupCompile.cache
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\ShareX_windows_MarkupCompile.lref
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\App.baml
-E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\MainWindow.baml
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\Pages\CallLogsPage.baml
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\Pages\FileTransferPage.baml
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\Pages\MessagesPage.baml
@@ -540,3 +538,5 @@ E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\ShareX_windows.pdb
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\ShareX_windows.genruntimeconfig.cache
 E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\ref\ShareX_windows.dll
+E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\Pages\ImageFullScreen.g.cs
+E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\obj\Release\net6.0-windows10.0.20348.0\win10-x64\Pages\ImageFullScreen.baml

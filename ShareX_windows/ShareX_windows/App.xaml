@@ -3,8 +3,63 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ShareX_windows"
              xmlns:IconPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              StartupUri="Window1.xaml">
+    
+    
     <Application.Resources>
+        
+        <SolidColorBrush x:Key="defaultForegroundColor" Color="#FFCFD6D6"/>
+        <SolidColorBrush x:Key="darkBackground" Color="#202020"/>
+        <SolidColorBrush x:Key="LightBackground" Color="#272727"/>
+
+        <LinearGradientBrush x:Key="stackBtnGradient" StartPoint="0,0" EndPoint="0 1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FF565353" Offset="-1" />
+                    <GradientStop Color="Transparent" Offset="0.5"/>
+                    <GradientStop Color="#FF565353" Offset="2" />
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+        
+        
+        
+
+        <Style TargetType="{x:Type Button}" x:Key="WindowButtonStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ButtonBase}">
+                        <Border
+                            x:Name="Chrome"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Margin="0"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="Webdings"/>
+            <Setter Property="FontSize" Value="13.333" />
+            <Setter Property="Foreground" Value="{StaticResource defaultForegroundColor}" />
+            <Setter Property="Margin" Value="0,2,3,0"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Gray" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 
         <Style TargetType="ProgressBar">
             <Setter Property="Template">
@@ -28,10 +83,35 @@
             </Setter>
         </Style>
 
+       
+
+
         
+        <Style x:Key="topBtnBorder" TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="{StaticResource stackBtnGradient}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="topBtnText" TargetType="TextBlock">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=StackPanel,AncestorLevel=1}, Path=IsMouseOver}" Value="true">
+                    <Setter Property="TextBlock.Foreground" Value="White"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="topBtnIcon" TargetType="IconPack:PackIconMaterial">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=StackPanel,AncestorLevel=1}, Path=IsMouseOver}" Value="true">
+                    <Setter Property="TextBlock.Foreground" Value="White"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
 
         <Style x:Key="phoneDetails" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#d0c0ff"/>
+            <Setter Property="Foreground" Value="{StaticResource defaultForegroundColor}"/>
             <Setter Property="FontSize" Value="15"/>
         </Style>
 
@@ -58,11 +138,12 @@
                     <Setter Property="Background" Value="#718ee3"/>
                     <Setter Property="Foreground" Value="#ffffff"/>
                 </Trigger>
-            </Style.Triggers>
-            
-        </Style>
-        
 
+            </Style.Triggers>
+
+        </Style>
+
+        
         <Style x:Key="menuButtonIcon" TargetType="IconPack:PackIconMaterial">
             <Setter Property="Width" Value="15"/>
             <Setter Property="Height" Value="15"/>

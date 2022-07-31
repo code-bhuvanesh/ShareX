@@ -15,22 +15,29 @@ using System.Windows.Threading;
 using QRCoder;
 using Windows.Storage.Streams;
 using System.Windows.Media.Imaging;
+using System.Configuration;
 
 namespace ShareX_windows
 {
-    public static class Utils
+    public class Utils
     {
-        private static byte[] bytes;
-        private static IPAddress? ipAddress;
-        private static IPEndPoint? remoteEP;
-        private static Socket s;
-        private static List<string> deviceList = new List<string>();
-        private static List<Thread> ipThread = new List<Thread>();
+        private byte[] bytes;
+        private IPAddress? ipAddress;
+        private IPEndPoint? remoteEP;
+        private Socket s;
+        private List<string> deviceList = new List<string>();
+        private List<Thread> ipThread = new List<Thread>();
 
-        private static int buffer = 1024 * 10000;
+        private int buffer = 1024 * 10000;
+        private int port = 6578;
+
+        public Utils(int port = 6578)
+        {
+            this.port = port;
+        }
 
 
-        public static string getIp()
+        public string getIp()
         {
             var strIP = "";
 
@@ -54,47 +61,71 @@ namespace ShareX_windows
         }
 
 
-        public static void hostServer()
+        public void hostServer()
         {
             var strIP = getIp();
 
 
             //IPAddress ip = IPAddress.Parse("192.168.29.180");
-            Debug.WriteLine($"strip {strIP}");
+            string mobileSavedIp = read_Setting("MobileIp");
+            strIP = mobileSavedIp == "" ? strIP : mobileSavedIp;
+            Debug.WriteLine($"mobileIP read is  {read_Setting("MobileIp")}, {strIP}");
             IPAddress ip = IPAddress.Parse(strIP);
-            IPEndPoint localEndPoint = new IPEndPoint(ip, 6578);
-
+            IPEndPoint localEndPoint = new IPEndPoint(ip, port);
             Socket listener = new Socket(ip.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
             try
             {
-                Debug.WriteLine($"connected 0.........");
-
                 listener.Bind(localEndPoint);
-                Debug.WriteLine($"connected 1.........");
-
-                
                 listener.Listen(10);
-                Debug.WriteLine($"connected 2.........");
-
                 s = listener.Accept();
+                var connectedIp = s.RemoteEndPoint.ToString();
+                connectedIp = connectedIp.Substring(0, connectedIp.IndexOf(":"));
+                Debug.WriteLine($"connection port is {port}, connected ip is {connectedIp}");
+                if (mobileSavedIp != "" && mobileSavedIp != connectedIp)
+                {
+                    s.Close();
+                    listener.Close();
+                    hostServer();
+                    Debug.WriteLine("host server started again");
+                    return;
+                }
+                save_Setting("MobileIp", connectedIp);
+                //Debug.WriteLine($"mobileIP 2 read is  {read_Setting("MobileIp")}....");
+                
+                new Thread(delegate()
+                    {
+                        while(true)
+                        {
+                            try
+                            {
+                                var isConnected = !(s.Poll(1, SelectMode.SelectRead) && s.Available == 0);
+                            }
+                            catch (SocketException e) 
+                            { 
+                                Debug.WriteLine("connecteion error : " + e.Message);
+                                break;
+                            }
+                        }
+                        
+                    }).Start();
 
-                Debug.WriteLine($"connected 3.........");
+
+
             }
             catch(SocketException e)
             {
                 Debug.WriteLine("failed to connect  " + e.Message);
             }
-            //var mobileIp = s.RemoteEndPoint.ToString();
-            //mobileIp = mobileIp.Substring(0, mobileIp.IndexOf(":"));
+           
+
             //var name = GetHostName(mobileIp);
             //Debug.WriteLine($"ip is {mobileIp} name is {name}");
-            //return mobileIp;
         }
 
 
 
-        static string NetworkGateway()
+        string NetworkGateway()
         {
             string ip = null;
 
@@ -114,7 +145,7 @@ namespace ShareX_windows
 
 
 
-        public static void seachDevice(Action<string> toAdd)
+        public void seachDevice(Action<string> toAdd)
         {
             //try
             //{
@@ -152,7 +183,7 @@ namespace ShareX_windows
             //}
         }
 
-        public static string GetHostName(string ipAddress)
+        public string GetHostName(string ipAddress)
         {
             try
             {
@@ -164,13 +195,12 @@ namespace ShareX_windows
             }
             catch (SocketException ex)
             {
-                
             }
 
             return null;
         }
 
-        public static String? receive_msg()
+        public String? receive_msg()
         {
             try
             {
@@ -197,7 +227,7 @@ namespace ShareX_windows
             }
 
         }
-        public static void send_msg(string send_msg)
+        public void send_msg(string send_msg)
         {
             try
             {
@@ -220,7 +250,7 @@ namespace ShareX_windows
 
         }
 
-        public static OpenFileDialog openFile()
+        public OpenFileDialog openFile()
         {
             OpenFileDialog file = new OpenFileDialog();
             file.Multiselect = true;
@@ -232,7 +262,7 @@ namespace ShareX_windows
 
         }
 
-        public static void sendFile(String filepath, Action<double, FileItem> updateProgress, FileItem fileItem)
+        public void sendFile(String filepath, Action<double, FileItem> updateProgress, FileItem fileItem)
         {
             if(filepath != null)
             {
@@ -270,15 +300,15 @@ namespace ShareX_windows
                 //send_msg(fileName);
                 var status = receive_msg();
                 Debug.WriteLine($"file {status}");
-                Utils.send_msg(fileName);
+                send_msg(fileName);
 
             }
         }
 
-        public static void receiveFile(Action<string,string, ListBox> addItem,Action<double, FileItem> updateProgress, ListBox filesList,int i)
+        public void receiveFile(Action<string,string, ListBox> addItem,Action<double, FileItem> updateProgress, ListBox filesList,int i,string filePath1 = "D:\\ShareX\\")
         {
 
-            var filePath = "D:\\ShareX\\";
+            var filePath = filePath1;
             var fileName = receive_msg();
             var size = receive_msg();
             Debug.WriteLine($"file name : {fileName}, fileSize : {size}");
@@ -320,10 +350,51 @@ namespace ShareX_windows
                 send_msg("completed");
                 file.Close();
             }
-            
         }
 
-        public static string getFileName(string filePath)
+        public String? receiveFile(string filePath1 = "D:\\ShareX\\")
+        {
+
+            var filePath = filePath1;
+            var fileName = receive_msg();
+            var size = receive_msg();
+            Debug.WriteLine($"file name : {fileName}, fileSize : {size}");
+            if ((fileName != null && fileName != "") && (size != null && size != ""))
+            {
+                var fileSize = long.Parse(size);
+
+                if (!Directory.Exists(filePath))
+                {
+                    Directory.CreateDirectory(filePath);
+                }
+
+                Thread.Sleep(20);
+                var file = File.OpenWrite(filePath + fileName);
+
+                var bytes = new byte[buffer];
+
+                var fileRead = 0;
+
+                while (fileRead < fileSize)
+                {
+                    var bytesRead = s.Receive(bytes);
+                    file.Write(bytes, 0, bytesRead);
+                    fileRead += bytesRead;
+
+                    var completed = Math.Round(((fileRead * 1.0) / fileSize) * 100, 2);
+                    if (completed > 100.0)
+                        completed = 100.00;
+                }
+                Debug.WriteLine("received file");
+                send_msg("completed");
+                file.Close();
+                return filePath + fileName;
+            }
+            return null;
+
+        }
+
+        public string getFileName(string filePath)
         {
             string name = filePath.Substring(filePath.LastIndexOf("\\") + 1);
             
@@ -335,7 +406,7 @@ namespace ShareX_windows
             return name;
         }
 
-        public static String getFileSize(long size)
+        public String getFileSize(long size)
         {
            
             if (size > 1069547520)
@@ -357,15 +428,58 @@ namespace ShareX_windows
 
         }
 
-        public static void stopReceving()
+        public void stopReceving()
         {
             s.Blocking = false;
             s.Blocking = true;
         }
-        public static void disconnect()
+        public void disconnect()
         {
             s.Shutdown(SocketShutdown.Both);
             s.Close();
         }
+
+        public void save_Setting(string setting_Name, string setting_Value)
+
+        {
+            string property_name = setting_Name;
+
+            SettingsProperty prop = null;
+
+            if (Properties.Settings1.Default.Properties[property_name] != null)
+            {
+                prop = Properties.Settings1.Default.Properties[property_name];
+            }
+
+            else
+            {
+                prop = new System.Configuration.SettingsProperty(property_name);
+                prop.PropertyType = typeof(string);
+                Properties.Settings1.Default.Properties.Add(prop);
+                Properties.Settings1.Default.Save();
+            }
+            Properties.Settings1.Default.Properties[property_name].DefaultValue = setting_Value;
+
+            Properties.Settings1.Default.Save();
+
+        }
+
+
+
+        public string read_Setting(string setting_Name)
+        {
+            string sResult = "";
+
+            if (Properties.Settings1.Default.Properties[setting_Name] != null)
+            {
+                sResult = Properties.Settings1.Default.Properties[setting_Name].DefaultValue.ToString();
+            }
+
+            if (sResult == "NaN") sResult = "0";
+
+            return sResult;
+        }
+
     }
+
 }

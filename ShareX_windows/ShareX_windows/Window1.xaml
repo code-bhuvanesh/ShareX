@@ -1,96 +1,78 @@
-﻿<Window x:Class="ShareX_windows.Window1"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:IconPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        xmlns:local="clr-namespace:ShareX_windows"
-        mc:Ignorable="d"
-        Loaded="Window_Loaded"
-        Title="Window1" Height="720" Width="1080">
+﻿<Window
+    x:Class="ShareX_windows.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:IconPack="using:MahApps.Metro.IconPacks"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ShareX_windows"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
 
-    
-    <Grid Background="Aqua">
-        
-        
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="230"/>
-            <ColumnDefinition Width="117*"/>
-            <ColumnDefinition Width="302*"/>
-            <ColumnDefinition Width="431*"/>
-        </Grid.ColumnDefinitions>
-
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Border Height="100"/>
+        <Grid x:Name="AppTitleBar" Background="Transparent">
+            <Image
+                Width="12"
+                Height="12"
+                Margin="8"
+                HorizontalAlignment="Left"
+                Source="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+            <TextBlock
+                x:Name="AppTitleTextBlock"
+                Margin="28,6"
+                VerticalAlignment="Center"
+                Style="{StaticResource CaptionTextBlockStyle}"
+                Text="ShareX"
+                TextWrapping="NoWrap" />
+        </Grid>
 
 
-        <Border
-            Grid.Row="0"
-            Grid.RowSpan="2"
-            Background="{StaticResource darkBackground}">
+        <NavigationView
+            x:Name="navBar"
+            Grid.Row="1"
+            IsBackButtonVisible="Collapsed"
+            SelectionChanged="navBar_SelectionChanged">
+            <NavigationView.Resources>
+                <SolidColorBrush x:Key="NavigationViewContentBackground" Color="Transparent" />
+                <SolidColorBrush x:Key="NavigationViewContentGridBorderBrush" Color="Transparent" />
+            </NavigationView.Resources>
 
-            <DockPanel>
-                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                    <Border Margin="0 10 0 0 " Height="180" Width="100">
-                        <Rectangle >
-                            <Rectangle.Fill>
-                                <ImageBrush Stretch="Uniform"  ImageSource="/mobile.png"/>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                    </Border>
-
-                    <StackPanel  Height="auto" Margin="0 20 0 0">
-                        <TextBlock x:Name="DeviceName" Text="Realme 3 pro" Style="{StaticResource phoneDetails}"/>
-                        <TextBlock x:Name="connectionStatus" Text="Not connected" Style="{StaticResource phoneDetails}"/>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  Margin="10 5">
-                            <IconPack:PackIconMaterial Margin="-10 0 0 0" Width="15" Height="15" Foreground="#d0c0ff" HorizontalAlignment="Left" VerticalAlignment="Center" Kind="Battery60" />
-                            <TextBlock Text="60% " Margin=" 2  0 0 0"  Style="{StaticResource phoneDetails}"/>
-                        </StackPanel>
-
-                    </StackPanel>
-
-                </StackPanel>
-                <StackPanel>
-                    <Border Margin="30" Background="White" Width="200" Height="1"/>
-
-                    <ListBox 
-                        BorderBrush="Transparent" 
-                        x:Name="navBar" 
-                        SelectionMode="Single" 
-                        SelectionChanged="navBar_SelectionChanged" 
-                        Background="Transparent">
-
-                        <local:NavButton Navlink="0" Text="Photos" Icon="Image"/>
-
-                        <local:NavButton Navlink="1" Text="File Transfer" Icon="File"/>
-
-                        <local:NavButton Navlink="2" Text="Message" Icon="Message"/>
-
-                        <local:NavButton Navlink="3" Text="Notifications" Icon="Bell"/>
-
-                        <local:NavButton Navlink="4" Text="Call Logs" Icon="PhoneLog"/>
-
-                    </ListBox>
-                </StackPanel>
+            <NavigationView.MenuItems>
+                <NavigationViewItem
+                    Content="Photos"
+                    FontSize="16"
+                    Icon="BrowsePhotos"
+                    Tag="0" />
+                <NavigationViewItem
+                    Content="File Transfer"
+                    FontSize="16"
+                    Icon="OpenFile"
+                    Tag="1" />
+                <NavigationViewItem
+                    Content="Messages"
+                    FontSize="16"
+                    Icon="Message"
+                    Tag="2" />
+                <NavigationViewItem
+                    Content="Notifications"
+                    FontSize="16"
+                    Icon="LeaveChat"
+                    Tag="3" />
+                <NavigationViewItem
+                    Content="Call Logs"
+                    FontSize="16"
+                    Icon="Phone"
+                    Tag="4" />
+            </NavigationView.MenuItems>
+        </NavigationView>
 
 
-            </DockPanel>
-
-        </Border>
 
 
-        <Frame 
-            Grid.Column="1" 
-            Grid.Row="0"
-            Grid.RowSpan="2"
-            x:Name="navFrame" 
-            Background="{StaticResource LightBackground}"
-            NavigationUIVisibility="Hidden" Grid.ColumnSpan="3"/>
 
 
     </Grid>

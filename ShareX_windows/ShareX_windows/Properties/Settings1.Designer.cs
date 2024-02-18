@@ -23,12 +23,15 @@ namespace ShareX_windows.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string MobileIp {
             get {
                 return ((string)(this["MobileIp"]));
+            }
+            set {
+                this["MobileIp"] = value;
             }
         }
     }

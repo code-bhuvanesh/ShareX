@@ -1,0 +1,22 @@
+﻿<UserControl x:ConnectionId='1'
+    x:Class="ShareX_windows.Views.PhotosView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ShareX_windows.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:ConnectionId='2' x:Name="grid1">
+        <ScrollViewer>
+            <GridView x:ConnectionId='3'
+                x:Name="photosPannel"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                                                            
+                SelectionMode="Single" />
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>
+

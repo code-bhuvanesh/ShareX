@@ -1,0 +1,65 @@
+﻿<UserControl x:ConnectionId='1'
+    x:Class="ShareX_windows.customWigets.FileItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ShareX_windows.customWigets"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid
+        Height="100"
+        Margin="10"
+        HorizontalAlignment="Stretch"
+        Background="{StaticResource ItemBackground}"
+        CornerRadius="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <SymbolIcon
+            Grid.Column="0"
+            Width="30"
+            Height="20"
+            Margin="10"
+            Symbol="OpenFile" />
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock x:ConnectionId='5' Foreground="White"                          />
+            <TextBlock x:ConnectionId='6' Foreground="White"                          />
+        </StackPanel>
+        <StackPanel Grid.Column="2" Orientation="Horizontal">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <ProgressRing x:ConnectionId='3'
+                    Width="50"
+                    Height="50"
+                    IsIndeterminate="False"
+                                           />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:ConnectionId='4'
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                                              />
+                </StackPanel>
+
+            </Grid>
+            <Button x:ConnectionId='2'
+                x:Name="cancel"
+                HorizontalAlignment="Right"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}">
+                <SymbolIcon
+                    Width="20"
+                    Height="20"
+                    Margin="10"
+                    VerticalAlignment="Center"
+                    Symbol="Cancel" />
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
+

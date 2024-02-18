@@ -4,53 +4,61 @@ import android.os.Environment
 import android.util.Log
 import kotlinx.coroutines.*
 import java.io.File
-import java.util.*
-import kotlin.Comparator
+import java.net.SocketException
 
-class SendImages(ip: String) {
+object SendImages{
 
-    private val port = 2347
+    private val port = 7586
 
-    init {
-        //create separate socket for photo transfer
-        val pUtils = Utils(port)
+    public var isConnected = false
+    lateinit var pSocketHelper :SocketHelper
+    fun startSendingPhotos( ip: String)
+    {
+//        create separate socket for photo transfer
+        pSocketHelper = SocketHelper(port, "photo_server")
 
         //get path of DCIM/camera and get image files
         val imgDirPath =
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath + "/Camera"
         val imgDir = File(imgDirPath)
-        var imgList = imgDir.listFiles { file ->
+        val imgList = imgDir.listFiles { file ->
             file.name.contains(".jpg") && file.name.substring(0,1) != "."
         }
 
-        //sorting the list of files
-//        if (imgList != null && imgList.size > 1) {
-//            imgList.sortedArrayWith{
-//                    object1, object2 ->
-//                if (object1.lastModified() > object2.lastModified()) object1.lastModified().toInt()
-//                else object2.lastModified().toInt()
-//            }
-//        }
-
-
-        //starting transferring photos
         CoroutineScope(Dispatchers.IO).launch {
-            imgList = sortFiles(imgList.asIterable()).toList().toTypedArray()
+            val imgList1 = sortFiles(imgList!!.asIterable()).toMutableList()
 
-            var totalImages = imgList.size
-//            totalImages = 10
+            var totalImages = imgList1.size
+            totalImages = 200
 
-            if (imgList != null) {
-                Log.d("sendImages", "files List : ${imgList.size}")
+            Log.d("photo_server", "files List : ${imgList1.size}")
+
+            while (!isConnected)
+            {
+                isConnected = pSocketHelper.connectToServer(ip)
+                Log.d("photo_server", "isConnected $isConnected")
             }
-            pUtils.connectToServer(ip)
-            pUtils.sendMsg(totalImages.toString())
-            if (imgList != null) {
+//            Log.d("photo_server", "startSendingPhotos: test msg is ${pSocketHelper.receiveMsg()}")
+            pSocketHelper.sendMsg(totalImages.toString())
+            try {
                 for (i in 0 until totalImages) {
-                    pUtils.sendFile(imgList[i])
-                    Log.d("sendImages", "sent ${i + 1} images")
+                    pSocketHelper.sendMsg(imgList1[i].name)
+                    if(pSocketHelper.receiveMsg() != "success")
+                    {
+                        pSocketHelper.sendFile(imgList1[i])
+                    }
                 }
             }
+            catch (e : SocketException)
+            {
+                try{
+                    pSocketHelper.disconnect()
+                    isConnected = false;
+                }
+                catch (e : SocketException){}
+                isConnected = false;
+            }
+
         }
 
 
@@ -72,6 +80,12 @@ class SendImages(ip: String) {
                 it.file
             }
     }
+    public fun disconnect() {
+        CoroutineScope(Dispatchers.IO).launch {
+            pSocketHelper.disconnect()
+        }
+    }
+
 
     private class FileWithMetadata(
         val file: File

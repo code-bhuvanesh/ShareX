@@ -1,0 +1,64 @@
+﻿<UserControl
+    x:Class="ShareX_windows.Views.NotificationsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ShareX_windows.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <TextBlock
+            Margin="20"
+            VerticalAlignment="Top"
+            Style="{StaticResource tempText}"
+            Text="notification view" />
+
+        <Border
+            MinHeight="200"
+            Margin="200"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
+            Background="{StaticResource ItemBackground}"
+            CornerRadius="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Image Source="{x:Bind nViewModel.iconBitmapProperty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="20"
+                    FontSize="26"
+                    Foreground="DarkGray"
+                    Text="{x:Bind nViewModel.applicationNameProperty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    TextAlignment="Left" />
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="20"
+                    FontSize="26"
+                    Foreground="DarkGray"
+                    Text="{x:Bind nViewModel.titleProperty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    TextAlignment="Left" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="20"
+                    FontSize="26"
+                    Foreground="Gray"
+                    Text="{x:Bind nViewModel.contentProperty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+            </Grid>
+        </Border>
+    </Grid>
+
+</UserControl>

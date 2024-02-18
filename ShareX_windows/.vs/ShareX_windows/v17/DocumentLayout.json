@@ -1,0 +1,375 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\window1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\window1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\helpers\\heartsocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\helpers\\heartsocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\helpers\\sockethelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\helpers\\sockethelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\views\\qrconnectview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\views\\qrconnectview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\views\\qrconnectview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\views\\qrconnectview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\views\\notificationsview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\views\\notificationsview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\viewmodels\\photosviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\viewmodels\\photosviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\views\\photosview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\views\\photosview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\helpers\\mainsocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\helpers\\mainsocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\helpers\\filehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\helpers\\filehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\viewmodels\\filetrasferviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\viewmodels\\filetrasferviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\viewmodels\\notificationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\viewmodels\\notificationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\helpers\\settingshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\helpers\\settingshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\views\\imagefullscreenview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\views\\imagefullscreenview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\models\\imagefullscreenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\models\\imagefullscreenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\views\\filetransferview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\views\\filetransferview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\views\\callsview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\views\\callsview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\customwigets\\fileitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\customwigets\\fileitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|d:\\projects\\my_projects\\sharex\\sharex_windows\\sharex_windows\\views\\notificationsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8F5C5AB2-3CD4-43FF-8062-5ABAF4D24EF8}|ShareX_windows\\ShareX_windows.csproj|solutionrelative:sharex_windows\\views\\notificationsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "QrConnectView.xaml",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\QrConnectView.xaml",
+              "RelativeDocumentMoniker": "ShareX_windows\\Views\\QrConnectView.xaml",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\QrConnectView.xaml",
+              "RelativeToolTip": "ShareX_windows\\Views\\QrConnectView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-02-17T17:01:12.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PhotosViewModel.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\ViewModels\\PhotosViewModel.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\ViewModels\\PhotosViewModel.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\ViewModels\\PhotosViewModel.cs",
+              "RelativeToolTip": "ShareX_windows\\ViewModels\\PhotosViewModel.cs",
+              "ViewState": "AQIAAHQAAAAAAAAAAAAAAAsAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Window1.xaml.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Window1.xaml.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Window1.xaml.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Window1.xaml.cs",
+              "RelativeToolTip": "ShareX_windows\\Window1.xaml.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAgwEsAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PhotosView.xaml.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\PhotosView.xaml.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Views\\PhotosView.xaml.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\PhotosView.xaml.cs",
+              "RelativeToolTip": "ShareX_windows\\Views\\PhotosView.xaml.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAwB4AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NotificationsView.xaml.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\NotificationsView.xaml.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Views\\NotificationsView.xaml.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\NotificationsView.xaml.cs",
+              "RelativeToolTip": "ShareX_windows\\Views\\NotificationsView.xaml.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAvwBsAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "QrConnectView.xaml.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\QrConnectView.xaml.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Views\\QrConnectView.xaml.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\QrConnectView.xaml.cs",
+              "RelativeToolTip": "ShareX_windows\\Views\\QrConnectView.xaml.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HeartSocket.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Helpers\\HeartSocket.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Helpers\\HeartSocket.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Helpers\\HeartSocket.cs",
+              "RelativeToolTip": "ShareX_windows\\Helpers\\HeartSocket.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAIwB4AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Window1.xaml",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Window1.xaml",
+              "RelativeDocumentMoniker": "ShareX_windows\\Window1.xaml",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Window1.xaml",
+              "RelativeToolTip": "ShareX_windows\\Window1.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-02-17T17:59:59.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SocketHelper.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Helpers\\SocketHelper.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Helpers\\SocketHelper.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Helpers\\SocketHelper.cs",
+              "RelativeToolTip": "ShareX_windows\\Helpers\\SocketHelper.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAgwEUAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FileHandler.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Helpers\\FileHandler.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Helpers\\FileHandler.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Helpers\\FileHandler.cs",
+              "RelativeToolTip": "ShareX_windows\\Helpers\\FileHandler.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAcwC8AAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MainSocket.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Helpers\\MainSocket.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Helpers\\MainSocket.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Helpers\\MainSocket.cs",
+              "RelativeToolTip": "ShareX_windows\\Helpers\\MainSocket.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAMwBgAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.808Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "NotificationViewModel.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\ViewModels\\NotificationViewModel.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\ViewModels\\NotificationViewModel.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\ViewModels\\NotificationViewModel.cs",
+              "RelativeToolTip": "ShareX_windows\\ViewModels\\NotificationViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIwAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FileTrasferViewModel.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\ViewModels\\FileTrasferViewModel.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\ViewModels\\FileTrasferViewModel.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\ViewModels\\FileTrasferViewModel.cs",
+              "RelativeToolTip": "ShareX_windows\\ViewModels\\FileTrasferViewModel.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAQwHgAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ImageFullScreenViewModel.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Models\\ImageFullScreenViewModel.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Models\\ImageFullScreenViewModel.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Models\\ImageFullScreenViewModel.cs",
+              "RelativeToolTip": "ShareX_windows\\Models\\ImageFullScreenViewModel.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SettingsHelper.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Helpers\\SettingsHelper.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Helpers\\SettingsHelper.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Helpers\\SettingsHelper.cs",
+              "RelativeToolTip": "ShareX_windows\\Helpers\\SettingsHelper.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAqwAsAAABlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.944Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ImageFullscreenView.xaml.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\ImageFullscreenView.xaml.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Views\\ImageFullscreenView.xaml.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\ImageFullscreenView.xaml.cs",
+              "RelativeToolTip": "ShareX_windows\\Views\\ImageFullscreenView.xaml.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAhwCQAAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.948Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\ViewModels\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\ViewModels\\ViewModelBase.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\ViewModels\\ViewModelBase.cs",
+              "RelativeToolTip": "ShareX_windows\\ViewModels\\ViewModelBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "NotificationsView.xaml",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\NotificationsView.xaml",
+              "RelativeDocumentMoniker": "ShareX_windows\\Views\\NotificationsView.xaml",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\NotificationsView.xaml",
+              "RelativeToolTip": "ShareX_windows\\Views\\NotificationsView.xaml",
+              "ViewState": "AQIAABsAAAAAAAAAAADgvx4AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-02-17T16:53:08.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CallsView.xaml.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\CallsView.xaml.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Views\\CallsView.xaml.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\CallsView.xaml.cs",
+              "RelativeToolTip": "ShareX_windows\\Views\\CallsView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "app.manifest",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\app.manifest",
+              "RelativeDocumentMoniker": "ShareX_windows\\app.manifest",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\app.manifest",
+              "RelativeToolTip": "ShareX_windows\\app.manifest",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
+              "WhenOpened": "2024-02-17T16:53:08.963Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FileTransferView.xaml.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\FileTransferView.xaml.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\Views\\FileTransferView.xaml.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\Views\\FileTransferView.xaml.cs",
+              "RelativeToolTip": "ShareX_windows\\Views\\FileTransferView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.971Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "FileItem.cs",
+              "DocumentMoniker": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\customWigets\\FileItem.cs",
+              "RelativeDocumentMoniker": "ShareX_windows\\customWigets\\FileItem.cs",
+              "ToolTip": "D:\\Projects\\my_projects\\ShareX\\ShareX_windows\\ShareX_windows\\customWigets\\FileItem.cs",
+              "RelativeToolTip": "ShareX_windows\\customWigets\\FileItem.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAwwDMAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T16:53:08.977Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

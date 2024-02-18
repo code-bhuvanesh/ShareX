@@ -1,0 +1,73 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShareX_windows"
+    xmlns:local2="using:ShareX_windows.customWigets">
+
+
+
+    <Style TargetType="local2:Item">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local2:Item">
+                    <Grid
+                        Margin="10"
+                        Padding="10"
+                        HorizontalAlignment="Stretch"
+                        Background="{StaticResource ItemBackground}"
+                        CornerRadius="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="1.5*" />
+                        </Grid.ColumnDefinitions>
+
+                        <SymbolIcon
+                            Grid.Column="0"
+                            Width="30"
+                            Height="20"
+                            Margin="10"
+                            Symbol="OpenFile" />
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Foreground="White" Text="{TemplateBinding FileName}" />
+                            <TextBlock Foreground="White" Text="232.2 MB" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <ProgressRing
+                                    Width="60"
+                                    Height="60"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    IsIndeterminate="False"
+                                    Value="70" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Text="100%" />
+
+                            </Grid>
+                            <Button
+                                x:Name="cancel"
+                                HorizontalAlignment="Right"
+                                Background="{x:Null}"
+                                BorderBrush="{x:Null}">
+                                <SymbolIcon
+                                    Width="20"
+                                    Height="20"
+                                    Margin="10"
+                                    VerticalAlignment="Center"
+                                    Symbol="Cancel" />
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
+

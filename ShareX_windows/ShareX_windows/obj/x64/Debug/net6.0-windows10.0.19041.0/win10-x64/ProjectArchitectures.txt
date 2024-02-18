@@ -1,0 +1,1 @@
+D:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\ShareX_windows.csproj;x64

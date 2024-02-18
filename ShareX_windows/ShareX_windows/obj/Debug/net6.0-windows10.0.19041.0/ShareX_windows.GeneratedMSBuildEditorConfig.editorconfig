@@ -1,10 +1,10 @@
 is_global = true
 build_property.TargetFramework = net6.0-windows10.0.19041.0
-build_property.TargetPlatformMinVersion = 10.0.19041.0
+build_property.TargetPlatformMinVersion = 10.0.17763.0
 build_property.UsingMicrosoftNETSdkWeb = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ShareX_windows
-build_property.ProjectDir = E:\Projects\my_projects\ShareX\ShareX_windows\ShareX_windows\
+build_property.ProjectDir = E:\Projects\my_projects\visual studio projects\ShareX_windows\ShareX_windows\

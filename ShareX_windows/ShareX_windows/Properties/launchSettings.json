@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ShareX_windows (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ShareX_windows (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

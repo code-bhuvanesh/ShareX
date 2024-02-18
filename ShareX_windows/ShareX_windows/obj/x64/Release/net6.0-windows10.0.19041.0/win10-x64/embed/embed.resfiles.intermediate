@@ -1,0 +1,10 @@
+App.xbf
+Themes\Generic.xbf
+Views\CallsView.xbf
+Views\FileTransferView.xbf
+Views\ImageFullscreenView.xbf
+Views\MessagesView.xbf
+Views\NotificationsView.xbf
+Views\PhotosView.xbf
+Views\QrConnectView.xbf
+Window1.xbf

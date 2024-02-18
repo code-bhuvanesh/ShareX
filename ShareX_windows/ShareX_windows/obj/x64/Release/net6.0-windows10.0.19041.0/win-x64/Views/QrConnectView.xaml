@@ -1,0 +1,38 @@
+﻿<UserControl
+    x:Class="ShareX_windows.Views.QrConnectView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ShareX_windows.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    <Grid>
+        <Border
+            Width="400"
+            Height="400"
+            Padding="0"
+            Background="{StaticResource ItemBackground}"
+            CornerRadius="8">
+            <StackPanel
+                Width="400"
+                Height="400"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Margin="20"
+                    HorizontalAlignment="Center"
+                    FontSize="32"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="Scan to connect" />
+                <Image x:ConnectionId='2'
+                    x:Name="QRImage"
+                    Width="300"
+                    Height="300" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
+

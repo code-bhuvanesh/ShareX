@@ -1,8 +1,7 @@
 package com.example.sharex.fragments
 
-import android.content.Context
+import android.content.*
 import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,9 +11,11 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.example.sharex.helpers.FilesListAdapter
 import com.example.sharex.R
-import com.example.sharex.helpers.Utils
+import com.example.sharex.helpers.MainSocket
+import com.example.sharex.helpers.SocketHelper
 import com.example.sharex.model.FileData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -22,7 +23,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class ReceiveFragment(u: Utils) : Fragment() {
+class ReceiveFragment(u: SocketHelper) : Fragment() {
 
     val utils = u
 
@@ -37,7 +38,7 @@ class ReceiveFragment(u: Utils) : Fragment() {
     var isReceiving = false
     var transferring = false
 
-
+    var recFilesCount = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -51,8 +52,14 @@ class ReceiveFragment(u: Utils) : Fragment() {
         return inflater.inflate(R.layout.fragment_receive, container, false)
     }
 
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
 
         filesStatus = view.findViewById(R.id.filesStatus1)
         filesListView = view.findViewById(R.id.receiveFilesList)
@@ -69,6 +76,7 @@ class ReceiveFragment(u: Utils) : Fragment() {
         val prefs: SharedPreferences = requireContext().getSharedPreferences(MyPREFERENCES, MODE_PRIVATE)
         transferring = prefs.getBoolean(TagName, false)
 
+        MainSocket.receiveCallback { receiveFiles(fileList, filesAdapter) }
 
         receiveFilesBtn.setOnClickListener {
             receiveFiles(fileList, filesAdapter)
@@ -79,7 +87,7 @@ class ReceiveFragment(u: Utils) : Fragment() {
     {
 
         GlobalScope.launch(Dispatchers.IO) {
-            if(!isReceiving && !transferring)
+            if(!isReceiving)
             {
                 val editor = sharedpreferences.edit()
                 editor.putBoolean(TagName, true)
@@ -99,8 +107,9 @@ class ReceiveFragment(u: Utils) : Fragment() {
                     {
                         for(i in 0 until filesCount)
                         {
-                            Log.d("TAG", "onCreate: files $i")
-                            val file = utils.receiveFile(filesAdapter, i)
+                            Log.d("TAG", "onCreate: files $recFilesCount")
+                            val file = utils.receiveFile(filesAdapter, recFilesCount)
+                            recFilesCount++
                             Thread.sleep(2000)
                         }
                         editor.putBoolean(TagName, false)

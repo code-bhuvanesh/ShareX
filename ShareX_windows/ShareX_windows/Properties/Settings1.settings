@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ShareX_windows.Properties" GeneratedClassName="Settings1">
   <Profiles />
   <Settings>
-    <Setting Name="MobileIp" Type="System.String" Scope="Application">
+    <Setting Name="MobileIp" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>
